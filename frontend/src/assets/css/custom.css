@@ -1,0 +1,87 @@
+.portfolio .portfolio-card {
+  background: var(--surface-color);
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.portfolio .portfolio-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 88%);
+}
+
+.portfolio .portfolio-card h4 {
+  font-size: 22px;
+  color: var(--heading-color);
+  margin-bottom: 12px;
+}
+
+
+.portfolio-bottom {
+  margin-top: 60px;
+  clear: both;
+}
+
+.portfolio .portfolio-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.portfolio .project-category {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.portfolio .project-tags .tag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+}
+
+.portfolio .project-year {
+  font-size: 13px;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  font-weight: 500;
+}
+
+.portfolio-item {
+  width: 50%;
+  padding: 12px;
+}
+
+.portfolio-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-content p {
+  flex-grow: 1;
+}
+
+@media (max-width: 991px) {
+  .portfolio-item {
+    width: 100%;
+  }
+}
+.portfolio-card {
+  min-height: 270px;
+}
