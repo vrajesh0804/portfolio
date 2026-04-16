@@ -166,7 +166,6 @@ export default function PortfolioPage() {
                     <a 
                       href={`${import.meta.env.BASE_URL}assets/resume/Vrajesh-Vagadiya-CV.pdf`} 
                       className="btn-primary" 
-                      download
                     >
                       <i className="bi bi-download"></i> Download CV
                     </a>
@@ -174,7 +173,6 @@ export default function PortfolioPage() {
                     <a 
                       href={`${import.meta.env.BASE_URL}assets/cover-letter/Vrajesh-Vagadiya-Cover-Letter.pdf`} 
                       className="btn-primary" 
-                      download
                     >
                       <i className="bi bi-download"></i> Download Cover Letter
                     </a>
