@@ -163,8 +163,21 @@ export default function PortfolioPage() {
                     <span className="role">Software Developer</span>
                   </div>
                   <div className="profile-actions">
-                    <a href="/assets/resume/Vrajesh-Vagadiya-CV.pdf" className="btn-primary"><i className="bi bi-download" download="Vrajesh-Vagadiya-CV.pdf"></i> Download CV</a>
-                    <a href="/assets/cover-letter/Vrajesh-Vagadiya-Cover-Letter.pdf" className="btn-primary"><i className="bi bi-download" download="Vrajesh-Vagadiya-Cover-Letter.pdf"></i> Download Cover Letter</a>
+                    <a 
+                      href={`${import.meta.env.BASE_URL}assets/resume/Vrajesh-Vagadiya-CV.pdf`} 
+                      className="btn-primary" 
+                      download
+                    >
+                      <i className="bi bi-download"></i> Download CV
+                    </a>
+
+                    <a 
+                      href={`${import.meta.env.BASE_URL}assets/cover-letter/Vrajesh-Vagadiya-Cover-Letter.pdf`} 
+                      className="btn-primary" 
+                      download
+                    >
+                      <i className="bi bi-download"></i> Download Cover Letter
+                    </a>
                     <a href="#contact" className="btn-secondary"><i className="bi bi-envelope"></i> Contact</a>
                   </div>
                   <div className="social-connect">
