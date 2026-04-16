@@ -63,7 +63,11 @@ export default function PortfolioPage() {
 
       <main className="main">
         <section id="home" className="hero section dark-background">
-          <img src="{`${import.meta.env.BASE_URL}/assets/img/home-banner.png" alt="" data-aos="fade-in" />
+          <img 
+            src={`${import.meta.env.BASE_URL}assets/img/home-banner.png`} 
+            alt="" 
+            data-aos="fade-in" 
+          />
           <div className="container" data-aos="fade-up" data-aos-delay="100">
             <div className="row justify-content-center">
               <div className="col-lg-8 text-center">
