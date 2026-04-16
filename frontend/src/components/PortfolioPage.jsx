@@ -85,7 +85,7 @@ export default function PortfolioPage() {
                     <SiLeetcode />
                   </a>
 
-                  <a href="mailto:vrajeshvagadiya06@gmail.com">
+                  <a href="mailto:vrajesh.vagadiya0804@gmail.com">
                     <FaEnvelope />
                   </a>
                 </div>
@@ -115,6 +115,7 @@ export default function PortfolioPage() {
                   </div>
                   <div className="profile-actions">
                     <a href="/assets/resume/Vrajesh-Vagadiya-CV.pdf" className="btn-primary"><i className="bi bi-download" download="Vrajesh-Vagadiya-CV.pdf"></i> Download CV</a>
+                    <a href="/assets/cover-letter/Vrajesh-Vagadiya-Cover-Letter.pdf" className="btn-primary"><i className="bi bi-download" download="Vrajesh-Vagadiya-Cover-Letter.pdf"></i> Download Cover Letter</a>
                     <a href="#contact" className="btn-secondary"><i className="bi bi-envelope"></i> Contact</a>
                   </div>
                   <div className="social-connect">
@@ -150,7 +151,7 @@ export default function PortfolioPage() {
                       <i className="bi bi-envelope"></i>
                       <div className="detail-content">
                         <span>Email</span>
-                        <strong><a href="mailto:vrajeshvagadiya06@gmail.com">vrajeshvagadiya06@gmail.com</a></strong>
+                        <strong><a href="mailto:vrajesh.vagadiya0804@gmail.com">vrajesh.vagadiya0804@gmail.com</a></strong>
                       </div>
                     </div>
                     <div className="detail-item" data-aos="fade-up" data-aos-delay="350">
@@ -559,7 +560,7 @@ export default function PortfolioPage() {
           <div className="container">
             <div className="row gy-4">
               {[
-                ["bi-envelope", "Email Me", "vrajeshvagadiya06@gmail.com"],
+                ["bi-envelope", "Email Me", "vrajesh.vagadiya0804@gmail.com"],
                 ["bi-telephone", "Call Me", "+49 176 45822351"],
                 ["bi-telephone", "WhatsApp", "+91 91067 55871"],
                 ["bi-geo-alt", "Current Address", "Kaiserslautern, Germany"],
