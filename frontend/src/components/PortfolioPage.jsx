@@ -1,18 +1,46 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import AboutCards from "./AboutCards";
 
 export default function PortfolioPage() {
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     window.AOS?.init();
   }, []);
 
   useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id");
+
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
+          setActiveSection(sectionId);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     window.AOS?.init();
 
     const isotopeLayouts = document.querySelectorAll(".isotope-layout");
+    const cleanupFunctions = [];
 
     isotopeLayouts.forEach((isotopeItem) => {
       const container = isotopeItem.querySelector(".isotope-container");
@@ -29,35 +57,48 @@ export default function PortfolioPage() {
         sortBy: sort,
       });
 
-      isotopeItem.querySelectorAll(".isotope-filters li").forEach((filterBtn) => {
-        filterBtn.addEventListener("click", function () {
-          const active = isotopeItem.querySelector(".isotope-filters .filter-active");
-          if (active) active.classList.remove("filter-active");
+      const filterButtons = isotopeItem.querySelectorAll(".isotope-filters li");
 
-          this.classList.add("filter-active");
-          iso.arrange({
-            filter: this.getAttribute("data-filter"),
-          });
+      const handleFilterClick = function () {
+        const active = isotopeItem.querySelector(".isotope-filters .filter-active");
+        if (active) active.classList.remove("filter-active");
+
+        this.classList.add("filter-active");
+        iso.arrange({
+          filter: this.getAttribute("data-filter"),
         });
+      };
+
+      filterButtons.forEach((filterBtn) => {
+        filterBtn.addEventListener("click", handleFilterClick);
+      });
+
+      cleanupFunctions.push(() => {
+        filterButtons.forEach((filterBtn) => {
+          filterBtn.removeEventListener("click", handleFilterClick);
+        });
+        iso.destroy();
       });
     });
+
+    return () => {
+      cleanupFunctions.forEach((cleanup) => cleanup());
+    };
   }, []);
 
   return (
     <>
       <header id="header" className="header fixed-top">
         <div className="container-fluid container-xl d-flex justify-content-center align-items-center">
-
           <nav id="navmenu" className="navmenu">
             <ul className="d-flex justify-content-center align-items-center mb-0">
-              <li><a href="#home" className="active">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#resume">Resume</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#home" className={activeSection === "home" ? "active" : ""}>Home</a></li>
+              <li><a href="#about" className={activeSection === "about" ? "active" : ""}>About</a></li>
+              <li><a href="#resume" className={activeSection === "resume" ? "active" : ""}>Resume</a></li>
+              <li><a href="#portfolio" className={activeSection === "portfolio" ? "active" : ""}>Portfolio</a></li>
+              <li><a href="#contact" className={activeSection === "contact" ? "active" : ""}>Contact</a></li>
             </ul>
           </nav>
-
         </div>
       </header>
 
